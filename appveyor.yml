@@ -11,5 +11,4 @@ build_script:
 - ps: ./build.ps1 -Verbosity Diagnostic
 test: off
 artifacts:
-- path: '**/bin/*'
 - path: artifacts/*

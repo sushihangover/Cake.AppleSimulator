@@ -3,6 +3,14 @@
 
 Cake Build addin for managing (simctl) Apple iOS/watchOS/TV simulators.
 
+##Nuget:
+
+`PM> Install-Package Cake.AppleSimulator.SushiHangover`
+
+Ref: [https://www.nuget.org/packages/Cake.AppleSimulator.SushiHangover/](https://www.nuget.org/packages/Cake.AppleSimulator.SushiHangover/)
+
+
+
 ## Installation
 
 Add the following reference to your cake build script:
