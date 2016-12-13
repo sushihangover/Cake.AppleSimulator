@@ -8,8 +8,51 @@ Cake Build addin for managing (simctl) Apple iOS/watchOS/TV simulators.
 Add the following reference to your cake build script:
 
 ```csharp
-#addin "Cake.AppleSimulator"
+#addin "Cake.AppleSimulator.SushiHangover"
 ```
+
+## Additional Features
+
+This variant of `Cake.AppleSimulator` adds additional features to allow unit testing on simulator:
+
+* InstalliOSApplication
+* UninstalliOSApplication
+* LaunchiOSApplication
+* TestiOSApplication
+
+## xUnit/NUnit for Devices Testing
+
+Review `unitest.cake` on performing xUnit/NUnit for Devices testing...
+
+There are two core Tasks (with supporting Action-based aliases) that show the basics:
+
+* UnitTestingFailExample
+* UnitTestingPassExample
+
+Unit testing on the iOS Simulator boils down to a fairly simple Task:
+
+	Task("UnitTestingFailExample")
+	    .IsDependentOn("RunningOnMacOS")
+	    .IsDependentOn("RestorePackages")
+	    .Does (() =>
+	{
+	    buildThisApp(
+	        "./src/Test.NUnit/Test.NUnit.csproj",
+	        "UnitTesting",
+	        "Clean"    
+	    );
+	    buildThisApp(
+	        "./src/Test.NUnit/Test.NUnit.csproj",
+	        "UnitTesting",
+	        "Build"    
+	    );
+	    unitTestApp(
+	        "cake.applesimulator.test-nunit",
+	        "./artifacts/Test.NUnit.app"
+	    );
+	});
+
+##Original Documentation:
 
 ## Usage
 
