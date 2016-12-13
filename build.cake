@@ -342,13 +342,12 @@ Task("PublishPackages")
 });
 
 Task("PublishRelease")
-    .IsDependentOn("RunUnitTests")
     .IsDependentOn("Package")
-    .WithCriteria(() => !local)
+    // .WithCriteria(() => !local)
     .WithCriteria(() => !isPullRequest)
-    .WithCriteria(() => isRepository)
-    .WithCriteria(() => isReleaseBranch)
-    .WithCriteria(() => isTagged)
+    // .WithCriteria(() => isRepository)
+    // .WithCriteria(() => isReleaseBranch)
+    // .WithCriteria(() => isTagged)
     .Does (() =>
 {
     var username = EnvironmentVariable("GITHUB_USERNAME");
