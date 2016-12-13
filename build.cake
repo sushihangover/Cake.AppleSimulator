@@ -266,7 +266,7 @@ Task("CreateRelease")
     .WithCriteria(() => !isPullRequest)
     .WithCriteria(() => isRepository)
     .WithCriteria(() => isReleaseBranch)
-    .WithCriteria(() => !isTagged)
+    .WithCriteria(() => isTagged)
     .Does (() =>
 {
     var username = EnvironmentVariable("GITHUB_USERNAME");
@@ -313,6 +313,7 @@ Task("PublishPackages")
     .WithCriteria(() => !isPullRequest)
     .WithCriteria(() => isReleaseBranch)
     .WithCriteria(() => isRepository)
+    .WithCriteria(() => isTagged)
     .Does (() =>
 {
     // Resolve the API key.
