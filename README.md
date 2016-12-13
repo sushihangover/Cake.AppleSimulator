@@ -11,7 +11,6 @@ Add the following reference to your cake build script:
 #addin "Cake.AppleSimulator"
 ```
 
-
 ## Usage
 
 ```csharp
