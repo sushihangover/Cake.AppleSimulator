@@ -1,7 +1,6 @@
 version: 1.0.{build}
 environment:
-  NUGET_SOURCE:
-    secure: qecpY2iYmZmFJjCKF/g+khFJXI17P9b2JM2KygVYGkS/MdVNhVOXTt6JO3+qf5K6
+  NUGET_SOURCE: https://www.nuget.org/api/v2/package
   GITHUB_USERNAME:
     secure: /eFWOKC5WlTCsjmVXOrmiX/u3GtrjGzDj4kBxDw6PbI=
   GITHUB_TOKEN:
