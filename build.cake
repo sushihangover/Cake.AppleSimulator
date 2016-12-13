@@ -4,6 +4,7 @@ using System.Threading;
 //////////////////////////////////////////////////////////////////////
 
 #addin "Cake.FileHelpers"
+#addin "Cake.AppleSimulator.SushiHangover"
 
 //////////////////////////////////////////////////////////////////////
 // TOOLS
@@ -259,13 +260,13 @@ Task("RestorePackages").Does (() =>
 });
 
 Task("CreateRelease")
-    //.IsDependentOn("RunUnitTests")
-    //.IsDependentOn("Package")
-    //.WithCriteria(() => !local)
-    //.WithCriteria(() => !isPullRequest)
-    //.WithCriteria(() => isRepository)
-    //.WithCriteria(() => isReleaseBranch)
-    //.WithCriteria(() => !isTagged)
+    .IsDependentOn("RunUnitTests")
+    .IsDependentOn("Package")
+    .WithCriteria(() => !local)
+    .WithCriteria(() => !isPullRequest)
+    .WithCriteria(() => isRepository)
+    .WithCriteria(() => isReleaseBranch)
+    .WithCriteria(() => !isTagged)
     .Does (() =>
 {
     var username = EnvironmentVariable("GITHUB_USERNAME");
@@ -308,9 +309,10 @@ Task("Package")
 
 Task("PublishPackages")
     .IsDependentOn("Package")
-    // .WithCriteria(() => !local)
+    .WithCriteria(() => !local)
     .WithCriteria(() => !isPullRequest)
-    // .WithCriteria(() => isRepository)
+    .WithCriteria(() => isReleaseBranch)
+    .WithCriteria(() => isRepository)
     .Does (() =>
 {
     // Resolve the API key.
@@ -342,11 +344,11 @@ Task("PublishPackages")
 
 Task("PublishRelease")
     .IsDependentOn("Package")
-    // .WithCriteria(() => !local)
+    .WithCriteria(() => !local)
     .WithCriteria(() => !isPullRequest)
-    // .WithCriteria(() => isRepository)
-    // .WithCriteria(() => isReleaseBranch)
-    // .WithCriteria(() => isTagged)
+    .WithCriteria(() => isRepository)
+    .WithCriteria(() => isReleaseBranch)
+    .WithCriteria(() => isTagged)
     .Does (() =>
 {
     var username = EnvironmentVariable("GITHUB_USERNAME");
@@ -378,9 +380,9 @@ Task("PublishRelease")
 //////////////////////////////////////////////////////////////////////
 
 Task("Default")
-    // .IsDependentOn("CreateRelease")
+    .IsDependentOn("CreateRelease")
     .IsDependentOn("PublishPackages")
-    // .IsDependentOn("PublishRelease")
+    .IsDependentOn("PublishRelease")
     .Does (() =>
 {
 });
