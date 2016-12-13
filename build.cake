@@ -10,6 +10,7 @@ using System.Threading;
 // TOOLS
 //////////////////////////////////////////////////////////////////////
 
+#tool "nuget:?Cake.AppleSimulator.SushiHangover"
 #tool "nuget:?package=xunit.runner.console"
 #tool "nuget:?package=GitVersion.CommandLine"
 #tool "GitReleaseManager"
@@ -281,6 +282,10 @@ Task("CreateRelease")
         throw new Exception("The GITHUB_TOKEN environment variable is not defined.");
     }
 
+    Information("username : {0}", username);
+    Information("githubOwner : {0}", githubOwner);
+    Information("githubRepository : {0}", githubRepository);
+    Information("majorMinorPatch : {0}", majorMinorPatch);
     GitReleaseManagerCreate(username, token, githubOwner, githubRepository, new GitReleaseManagerCreateSettings {
         Milestone         = majorMinorPatch,
         Name              = majorMinorPatch,

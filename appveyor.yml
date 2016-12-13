@@ -1,8 +1,7 @@
 version: 1.0.{build}
 environment:
   NUGET_SOURCE: https://www.nuget.org/api/v2/package
-  GITHUB_USERNAME:
-    secure: /eFWOKC5WlTCsjmVXOrmiX/u3GtrjGzDj4kBxDw6PbI=
+  GITHUB_USERNAME: sushihangover
   GITHUB_TOKEN:
     secure: mMrrEYoa3W9aMdthNtjHA9+FfEoYc3rcg7QW2lqvjZQ=
   NUGET_APIKEY:
