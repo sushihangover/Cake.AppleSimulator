@@ -82,60 +82,7 @@ Action<string, string, string> buildThisApp = (p,c,t) =>
         XBuild(p, settings);
     };
 };
-// Action<string, string> unitTestApp = (bundleId, appPath) =>
-// {
-//     Information("Shutdown");
-//     ShutdownAllAppleSimulators();
 
-//     var setting = new SimCtlSettings() { ToolPath = FindXCodeTool("simctl") };
-//     var simulators = ListAppleSimulators(setting);
-//     var device = simulators.First(x => x.Name == "xUnit Runner" & x.Runtime == "iOS 10.1");
-//     Information(string.Format($"Name={device.Name}, UDID={device.UDID}, Runtime={device.Runtime}, Availability={device.Availability}"));
-
-//     Information("LaunchAppleSimulator");
-//     LaunchAppleSimulator(device.UDID);
-//     Thread.Sleep(60 * 1000);
-
-//     Information("UninstalliOSApplication");
-//     UninstalliOSApplication(
-//         device.UDID, 
-//         bundleId,
-//         setting);
-// 	Thread.Sleep(5 * 1000);
-
-//     Information("InstalliOSApplication");
-//     InstalliOSApplication(
-//         device.UDID,
-//         appPath,
-//         setting);
-// 	// Delay to allow simctl install to finish, otherwise you can receive the following error:
-// 	// The request was denied by service delegate (SBMainWorkspace) for reason: 
-// 	// Busy ("Application "cake.applesimulator.test-xunit" is installing or uninstalling, and cannot be launched").     
-// 	Thread.Sleep(5 * 1000);
-
-//     Information("TestiOSApplication");
-//     var testResults = TestiOSApplication(
-//         device.UDID, 
-//         bundleId,
-//         setting);
-//     Information("Test Results:");
-//     Information(string.Format($"Tests Run:{testResults.Run} Passed:{testResults.Passed} Failed:{testResults.Failed} Skipped:{testResults.Skipped} Inconclusive:{testResults.Inconclusive}"));    
-
-//     Information("UninstalliOSApplication");
-//     UninstalliOSApplication(
-//         device.UDID, 
-//         bundleId,
-//         setting);
-
-//     Information("Shutdown");
-//     ShutdownAllAppleSimulators();
-
-//     if (testResults.Run > 0 && testResults.Failed > 0) 
-//     {
-// 	    Information(string.Format($"Tests Run:{testResults.Run} Passed:{testResults.Passed} Failed:{testResults.Failed} Skipped:{testResults.Skipped} Inconclusive:{testResults.Inconclusive}"));    
-// 		TestFailuresAbort();
-//     }
-// };
 Action<string> RestorePackages = (solution) =>
 {
     NuGetRestore(solution);
