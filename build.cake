@@ -285,7 +285,7 @@ Task("CreateRelease")
         Milestone         = majorMinorPatch,
         Name              = majorMinorPatch,
         Prerelease        = true,
-        TargetCommitish   = "master"
+        TargetCommitish   = "sushi"
     });
 });
 
