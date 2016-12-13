@@ -10,8 +10,8 @@ using System.Threading;
 //////////////////////////////////////////////////////////////////////
 
 #tool "nuget:?package=xunit.runner.console"
+#tool "nuget:?package=GitVersion.CommandLine"
 #tool "GitReleaseManager"
-#tool "GitVersion.CommandLine"
 #tool "GitLink"
 
 //////////////////////////////////////////////////////////////////////
