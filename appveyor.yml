@@ -1,14 +1,13 @@
 version: 1.0.{build}
 environment:
+  NUGET_SOURCE:
+    secure: qecpY2iYmZmFJjCKF/g+khFJXI17P9b2JM2KygVYGkS/MdVNhVOXTt6JO3+qf5K6
+  GITHUB_USERNAME:
+    secure: /eFWOKC5WlTCsjmVXOrmiX/u3GtrjGzDj4kBxDw6PbI=
+  GITHUB_TOKEN:
+    secure: mMrrEYoa3W9aMdthNtjHA9+FfEoYc3rcg7QW2lqvjZQ=
   NUGET_APIKEY:
-    secure: xx
-  NUGET_SOURCE: https://www.nuget.org/api/v2/package
-xamarin:
-  email: sushihangover@outlook.com
-  password:
-    secure: xx
-  android: true
-  ios: true
+    secure: ilgXixdHFR4fmcNjBiIB3686iIKTDToC1q7mAEsgyqM/Umuq9P20BiHSKRcY3J1R
 build_script:
 - cmd: ./build.cmd
 test: off
