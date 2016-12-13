@@ -5,9 +5,9 @@
 //------------------------------------------------------------------------------
 using System.Reflection;
 
-[assembly: AssemblyProduct("Cake.AppleSimulator")]
-[assembly: AssemblyVersion("0.0.1")]
-[assembly: AssemblyFileVersion("0.0.1")]
-[assembly: AssemblyInformationalVersion("0.0.1.1469152143")]
-[assembly: AssemblyCopyright("Copyright (c) Geoffrey Huntley")]
+[assembly: AssemblyProduct("SushiHangover.Cake.AppleSimulator")]
+[assembly: AssemblyVersion("0.1.0")]
+[assembly: AssemblyFileVersion("0.1.0")]
+[assembly: AssemblyInformationalVersion("0.1.0-sushi.1+6.Branch.sushi.Sha.6bd82694372f6c3eccf6052ef1b14b5385e41db3")]
+[assembly: AssemblyCopyright("Copyright (c) SushiHangover/RobertN")]
 
