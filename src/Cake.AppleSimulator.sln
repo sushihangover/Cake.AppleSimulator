@@ -6,15 +6,14 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "! Solution Items", "! Solution Items", "{8F1F16E6-8149-49AB-B67E-633DBB16866E}"
 	ProjectSection(SolutionItems) = preProject
 		..\appveyor.yml = ..\appveyor.yml
-		..\bootstrap.ps1 = ..\bootstrap.ps1
 		..\build.cake = ..\build.cake
-		..\build.cmd = ..\build.cmd
 		..\build.sh = ..\build.sh
 		Cake.AppleSimulator.nuspec = Cake.AppleSimulator.nuspec
 		CommonAssemblyInfo.cs = CommonAssemblyInfo.cs
 		..\LICENSE.md = ..\LICENSE.md
 		..\README.md = ..\README.md
 		..\RELEASENOTES.md = ..\RELEASENOTES.md
+		..\build.ps1 = ..\build.ps1
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.AppleSimulator", "Cake.AppleSimulator\Cake.AppleSimulator.csproj", "{B06F9D18-B527-480E-BA34-DD10644E2832}"

@@ -8,6 +8,6 @@ using System.Reflection;
 [assembly: AssemblyProduct("SushiHangover.Cake.AppleSimulator")]
 [assembly: AssemblyVersion("0.1.0")]
 [assembly: AssemblyFileVersion("0.1.0")]
-[assembly: AssemblyInformationalVersion("0.1.0-sushi.1+6.Branch.sushi.Sha.6bd82694372f6c3eccf6052ef1b14b5385e41db3")]
+[assembly: AssemblyInformationalVersion("0.1.0-sushi.1+7.Branch.sushi.Sha.e8ec3aeaa7c20dd589e5adce554bb10c40390196")]
 [assembly: AssemblyCopyright("Copyright (c) SushiHangover/RobertN")]
 

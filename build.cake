@@ -61,7 +61,7 @@ var buildVersion = gitVersion.FullBuildMetaData;
 
 // Artifacts
 var artifactDirectory = "./artifacts/";
-var packageWhitelist = new[] { "SushiHangover.Cake.AppleSimulator" };
+var packageWhitelist = new[] { "Cake.AppleSimulator.SushiHangover" };
 
 // Macros
 Action Abort = () => { throw new Exception("A non-recoverable fatal error occurred."); };
@@ -69,7 +69,7 @@ Action TestFailuresAbort = () => { throw new Exception("Testing revealed failed 
 Action NonMacOSAbort = () => { throw new Exception("Running on platforms other macOS is not supported."); };
 Action<string, string, string> buildThisApp = (p,c,t) =>
 {
-    Information(string.Format($"{t}|{c}|{p}"));
+    Information("{0}:{1}:{2}", t,c,p);
     if (isRunningOnMacOS)
     {
         var settings = new XBuildSettings()
@@ -181,7 +181,7 @@ Action<string> SourceLink = (solutionFileName) =>
 ///////////////////////////////////////////////////////////////////////////////
 Setup(() =>
 {
-    Information("Building version {0} of SushiHangover.Cake.AppleSimulator.", semVersion);
+    Information("Building version {0} of Cake.AppleSimulator.SushiHangover.", semVersion);
 });
 
 Teardown(() =>
@@ -221,11 +221,9 @@ Task("Build")
         {
             MSBuild(solution, new MSBuildSettings()
                 .SetConfiguration("Release")
-                .WithProperty("NoWarn", "1591") // ignore missing XML doc warnings
-                .WithProperty("TreatWarningsAsErrors", treatWarningsAsErrors.ToString())
                 .SetVerbosity(Verbosity.Minimal)
                 .SetNodeReuse(false));
-            SourceLink(solution);
+            // SourceLink(solution);
         }
     };
 
@@ -236,6 +234,7 @@ Task("UpdateAppVeyorBuildNumber")
     .WithCriteria(() => isRunningOnAppVeyor)
     .Does(() =>
 {
+    Information("{0}", semVersion);
     AppVeyor.UpdateBuildVersion(semVersion);
 });
 
@@ -246,7 +245,7 @@ Task("UpdateAssemblyInfo")
     var file = "./src/CommonAssemblyInfo.cs";
 
     CreateAssemblyInfo(file, new AssemblyInfoSettings {
-        Product = "SushiHangover.Cake.AppleSimulator",
+        Product = "Cake.AppleSimulator.SushiHangover",
         Version = majorMinorPatch,
         FileVersion = majorMinorPatch,
         InformationalVersion = informationalVersion,
@@ -381,7 +380,7 @@ Task("PublishRelease")
 Task("Default")
     // .IsDependentOn("CreateRelease")
     .IsDependentOn("PublishPackages")
-    .IsDependentOn("PublishRelease")
+    // .IsDependentOn("PublishRelease")
     .Does (() =>
 {
 });

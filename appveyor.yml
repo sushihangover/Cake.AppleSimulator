@@ -9,7 +9,7 @@ environment:
   NUGET_APIKEY:
     secure: ilgXixdHFR4fmcNjBiIB3686iIKTDToC1q7mAEsgyqM/Umuq9P20BiHSKRcY3J1R
 build_script:
-- cmd: ./build.cmd
+- ps: ./build.ps1 -Verbosity Diagnostic
 test: off
 artifacts:
 - path: '**/bin/*'
