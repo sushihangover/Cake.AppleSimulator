@@ -10,7 +10,7 @@ using System.Threading;
 // TOOLS
 //////////////////////////////////////////////////////////////////////
 
-#tool "nuget:?Cake.AppleSimulator.SushiHangover"
+#tool "nuget:?package=Cake.AppleSimulator.SushiHangover"
 #tool "nuget:?package=xunit.runner.console"
 #tool "nuget:?package=GitVersion.CommandLine"
 #tool "GitReleaseManager"
