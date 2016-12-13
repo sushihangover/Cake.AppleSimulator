@@ -181,12 +181,10 @@ Task("Build")
 
 Task("UpdateAppVeyorBuildNumber")
     .WithCriteria(() => isRunningOnAppVeyor)
-    .WithCriteria(() => isReleaseBranch)
-    .WithCriteria(() => isTagged)
     .Does(() =>
 {
-    Information("{0}", semVersion);
-    AppVeyor.UpdateBuildVersion(semVersion);
+    Information("{0}", buildVersion);
+    AppVeyor.UpdateBuildVersion(buildVersion);
 });
 
 Task("UpdateAssemblyInfo")
